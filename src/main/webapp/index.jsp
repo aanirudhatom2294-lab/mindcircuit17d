@@ -11,7 +11,7 @@
 		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 	<!-- This site is optimized with the Yoast SEO plugin v26.0 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>RG Mechanics</title>
+	<title>RG Mechanics PC Games</title>
 	<meta name="description" content="RG Mechanics Official Website For RePack PC Games. Download All Cracked And Highly Compressed PC Games For Free In Direct Download Links." />
 	<link rel="canonical" href="https://rgmechanics.com/" />
 	<link rel="next" href="https://rgmechanics.com/page/2/" />
