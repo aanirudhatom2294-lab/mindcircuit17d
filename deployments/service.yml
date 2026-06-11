@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: medic-service
+  labels:
+    app: medic-app
+    env: prod
+spec:
+  type: LoadBalancer
+  selector:
+    app: medic-app
+    env: prod
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
