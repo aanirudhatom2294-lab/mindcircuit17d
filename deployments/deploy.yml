@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medic-deploy
+  labels:
+    app: medic-app 
+    env: prod
+spec:
+  replicas: 3
+  
+  selector:
+    matchLabels:
+      app: medic-app 
+      env: prod
+  template:
+    metadata:
+      labels:
+        app: medic-app 
+        env: prod
+        version: v1_audio
+    spec:
+      containers:
+      - name: medic-container
+        image: jenkins/jenkins:lts
+        ports:
+        - containerPort: 8080
