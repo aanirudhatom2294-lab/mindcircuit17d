@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
       - name: medic-container
-        image: jenkins/jenkins:lts
+        image: devopshubg333/batch17d:18
         ports:
         - containerPort: 8080
