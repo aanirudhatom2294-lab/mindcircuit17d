@@ -24,6 +24,6 @@ spec:
     spec:
       containers: 
       - name: facebook-container
-        image: devopshubg333/batch17d:18
+        image: anirudhreddyk/argocd-project:xyz
         ports:
         - containerPort: 8080
