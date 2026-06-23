@@ -15,27 +15,52 @@ pipeline {
             }
         }
 
-        stage('SonarQube Scan') {
+        stage('Build & Unit Test') {
             steps {
-                echo 'Scanning project'
-                sh 'ls -ltr'
-
-                sh '''
-                    mvn sonar:sonar \
-                    -Dsonar.host.url=http://3.91.26.193/:9000 \
-                    -Dsonar.token=squ_ca1fc73663119f6601bebf4489b93f1fced3f330
-                '''
+                sh 'mvn clean test'
             }
         }
 
-        stage('Build Artifact') {
+        // stage('SonarQube Scan') {
+        //     steps {
+        //         echo 'Scanning project'
+        //         sh 'ls -ltr'
+
+        //         sh '''
+        //             mvn sonar:sonar \
+        //             -Dsonar.host.url=http://52.55.221.218:9000 \
+        //             -Dsonar.token=squ_0f39becdb864b01079c7ca1c09c68e6d1353446f
+        //         '''
+        //     }
+        // }
+
+        stage('SonarQube Scanning') {
+            steps {
+                withSonarQubeEnv('SonarQube'){
+
+                    sh '''
+                        mvn clean sonar:sonar
+                    '''
+                }
+            }
+        }
+
+        stage('Quality Gate Check') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Building Artifact') {
             steps {
                 echo 'Build Artifact'
                 sh 'mvn clean package'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Building Docker Image') {
             steps {
                 echo 'Build Docker Image'
 
@@ -45,7 +70,7 @@ pipeline {
             }
         }
 
-        stage('Scan Docker Image using Trivy') {
+        stage('Scan Docker Image using Trivy scan') {
             steps {
                 echo 'Scanning Image'
 
