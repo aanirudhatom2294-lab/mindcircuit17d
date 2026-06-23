@@ -1,27 +1,29 @@
+
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata:
-  name: medic-deploy
+  name: fb-deploy
   labels:
-    app: medic-app 
+    app: fb-app
     env: prod
 spec:
   replicas: 3
-  
+ 
   selector:
     matchLabels:
-      app: medic-app 
+      app: fb-app
       env: prod
   template:
-    metadata:
+    metadata: 
       labels:
-        app: medic-app 
+        app: fb-app
         env: prod
-        version: v1_audio
+        version: v2_vc
+
     spec:
-      containers:
-      - name: medic-container
+      containers: 
+      - name: facebook-container
         image: devopshubg333/batch17d:18
         ports:
         - containerPort: 8080
