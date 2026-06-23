@@ -115,7 +115,7 @@ pipeline {
                         git config user.email "aanirudh.atom2294@gmail.com"
                         git config user.name "Anirudh"
 
-                        sed -i "s/batch17d:.*/batch17d:${BUILD_NUMBER}/g" deploymentfiles/deploy.yaml
+                        sed -i "s/argocd-project:.*/argocd-project:${BUILD_NUMBER}/g" deploymentfiles/deploy.yaml
 
                         git add .
                         git commit -m "Update deployment image to version ${BUILD_NUMBER}" || true
