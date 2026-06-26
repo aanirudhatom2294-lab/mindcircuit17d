@@ -24,6 +24,6 @@ spec:
     spec:
       containers: 
       - name: gamesite-container
-        image: anirudhreddyk/argocd-project:xyz
+        image: anirudhreddyk/argocd-project:21
         ports:
         - containerPort: 8080
