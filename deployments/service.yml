@@ -4,12 +4,12 @@ kind: Service
 metadata:
   name: medic-service
   labels:
-    app: medic-app
+    app: fb-app
     env: prod
 spec:
   type: LoadBalancer
   selector:
-    app: medic-app
+    app: fb-app
     env: prod
   ports:
   - protocol: TCP
